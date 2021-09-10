@@ -44,8 +44,9 @@ $ nest g service board --no-spec
 - 프로바이더의 main idea는 종속성 주입이 가능하다는 것
 
 
-## @Body()
-- 요청 객체의 속성 중 Body를 가지고 오기위해 사용
+## Decorators
+- @Body() : 요청 객체의 속성 중 Body를 가지고 오기위해 사용
+- @Param() : path variable 을 가져오기 위해 사용. 지정하지 않으면 전체를 다 받고 특정 변수를 가져올 때는 지정
 
 ## DTO(Data Transfer Object)
 - 계층간 데이터 교환을 위한 객체
