@@ -38,10 +38,15 @@ $ nest g service board --no-spec
 
 ```
 
+<<<<<<< HEAD
 ## npm Install 
 
 ```
 # install class-validator class-transformer
+=======
+## class-validator and class-transformer
+```
+>>>>>>> 91c6fdc2290163c66ea57aade27cc0784d6e67b9
 $ npm install class-validator class-transformer 
 ```
     Options
