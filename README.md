@@ -53,6 +53,62 @@ $ nest g service board --no-spec
 - 데이터가 네트워크를 통해 전송되는 방법을 정의하는 객체
 - interface나 class를 이용해 정의 될 수 있음 => NestJS에서는 class 추천 
 
+## Pipe  
+
+<img src="img/pipe.PNG" alt="Pipe" width="400" height="200"/>
+
+- @Injectable() 데코레이터가 있는 클래스
+- PipeTransform interface 를 구현해야 함
+- Typical use cases
+
+  - transformation: 입력된 데이터를 원하는 형식으로 변환
+  - validation: 입력 데이터를 평가하여 유효한 경우 변경없이 전달, 유효하지않은 경우 예외 발생 시킴
+    
+    두 경우 모두 파이프틑 controller route handler 가 처리하는 인수에 대해서 작동. 
+    파이프는 메소드를 호출 바로 직전에 파이프 삽입 -> 파이프틑 메서드를 대상으로 하는 인수를 수신하고 이에 대해 작동
+
+- Binding Pipes
+  - Handler scoped Pipes: @UsePipes() 응 이용해 사용. 모든 파라미터에 적용
+    ```javascript
+    @Post()
+    @UsePipes(new JoiValidationPipe(createCatSchema))
+    async create(@Body() createCatDto: CreateCatDto) {
+        this.catsService.create(createCatDto);
+    }
+    ```
+
+  - Parameter scoped Pipes: 특정한 파라미터에게만 적용되는 파이프
+    ```javascript
+    @Get(':id')
+    async findOne(@Param('id', ParseIntPipe) id: number) {
+        return this.catsService.findOne(id);
+    }
+    ```
+
+  - Global scoped pipes: 애플리케이션 레벨의 파이프. 클라이언트에서 들어오는 모든 요청에 적용. main.ts 에 넣어서 사용
+    ```javascript
+    async function bootstrap() {
+        const app = await NestFactory.create(AppModule);
+        app.useGlobalPipes(new ValidationPipe());
+        await app.listen(3000); 
+    }
+
+    bootstrap();
+    ```
+
+- Built-in pipes
+  - ValidationPipe
+  - ParseIntPipe
+  - ParseFloatPipe
+  - ParseBoolPipe
+  - ParseArrayPipe
+  - ParseUUIDPipe
+  - ParseEnumPipe
+  - DefaultValuePipe
+
+
+## 
+
 ## Reference
 https://docs.nestjs.com/
 
