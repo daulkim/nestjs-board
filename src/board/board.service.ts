@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Board, BoardStatus } from './board.model';
-import {v1 as uuid} from 'uuid';
+import { v1 as uuid } from 'uuid';
 import { CreateBoardDto } from './dto/create-board-dto';
 
 @Injectable()
@@ -33,5 +33,10 @@ export class BoardService {
     deleteBoard(id: string): void {
         this.boards = this.boards.filter((board) => board.id !== id);
     }
-    
+
+    updateBoardStatus(id: string, status: BoardStatus): Board {
+        const board: Board = this.getBoardById(id);
+        board.status = status;
+        return board;
+    }
 }
