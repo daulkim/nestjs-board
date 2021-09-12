@@ -38,6 +38,27 @@ $ nest g service board --no-spec
 
 ```
 
+## npm Install 
+
+```
+# install class-validator class-transformer
+$ npm install class-validator class-transformer 
+```
+    Options
+    -P, --save-prod: Package will appear in your dependencies. (default) 
+
+    -D, --save-dev: Package will appear in your devDependencies.
+
+    -O, --save-optional: Package will appear in your optionalDependencies.
+
+    --no-save: Prevents saving to dependencies.
+
+    When using any of the above options to save dependencies to your package.json, there are two additional, optional flags:
+
+    -E, --save-exact: Saved dependencies will be configured with an exact version rather than using npm's default semver range operator.
+
+    -B, --save-bundle: Saved dependencies will also be added to your bundleDependencies list.
+
 ## Providers
 - Nest의 기본 개념
 - 대부분의 Nest 클래스는 프로바이더로 취급될 수 있음(services, repositories, factories, helpers 등)
@@ -110,7 +131,7 @@ $ nest g service board --no-spec
 ## 
 
 ## Reference
-https://docs.nestjs.com/
-
+https://docs.nestjs.com/  
+https://docs.npmjs.com/cli/v7/commands/npm-install  
 따라하면서 배우는 NestJS - John Ahn
 
