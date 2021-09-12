@@ -129,10 +129,9 @@ $ npm install class-validator and class-transformer
   - DefaultValuePipe
 
 
-## 
-
 ## Reference
 https://docs.nestjs.com/  
-https://docs.npmjs.com/cli/v7/commands/npm-install  
+https://docs.npmjs.com/cli/v7/commands/npm-install
+https://github.com/typestack/class-validator#manual-validation    
 따라하면서 배우는 NestJS - John Ahn
 
