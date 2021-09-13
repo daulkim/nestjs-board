@@ -128,6 +128,26 @@ $ npm install class-validator and class-transformer
   - ParseEnumPipe
   - DefaultValuePipe
 
+- transform()
+  
+  모든 파이프는 transform() 메서드를 구현해야 함
+   
+  두개의 파라미터를 가짐
+    - value: 처리가 된 인자의 값
+    - metadata: 인자에 대한 메타 데이터를 포함한 객체
+  
+  transform() 에서 리턴된 값은 Route 핸들러로 전해짐  
+  예외발생시 클라이언트로 바로 전해짐
+
+## readonly 
+
+외부에서 접근은 가능하지만 변경은 불가 
+```typescript
+readonly options = {
+  ...
+}
+```
+
 
 ## Reference
 https://docs.nestjs.com/  
