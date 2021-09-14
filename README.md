@@ -177,8 +177,16 @@ db.query('SELECT * FROM boards WHERE title = "Hello" AND status = "PUBLIC", (err
 - 테이블 간의 매핑을 만듦
 - 간단한 CLI 명령 제공
 - TypeORM 은 간단한 코딩으로 ORM 프레임 워크를 사용하기 쉬움
-- TypeORM 은 다른 모듈과 쉽게 통합 됨
+- TypeORM 은 다른 모듈과 쉽게 통합
 
+Postgres TypeORM 사용하기위해 필요한 모듈
+
+```
+# @nestjs/typeorm: NestJS 에서 TypeORM 을 사용하기 위해 연동 시켜주는 모듈
+# typeorm: TypeORM 모듈 
+# pg: Postgres 모듕
+$ npm install pg typeorm @nestjs/typeorm --save
+```
 
 ## Reference
 https://docs.nestjs.com/  
