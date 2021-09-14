@@ -148,6 +148,37 @@ readonly options = {
 }
 ```
 
+## TypeORM
+
+node.js 에서 실행되고 TypeScript 로 작성된 객체 관계형 매퍼 라이브러리  
+TypeScript 는 MySQL, PostgreSQL, MariaDB, SQLite, MS SQL Server, Oracle, SAP Hana 및 WebSQL 과 같은 여러 데이터베이스를 지원
+
+** ORM (Object Relational Mapping)
+
+객체와 관계형 데이터베이스의 데이터를 자동으로 변형 및 연결하는 작업
+ORM 을 이용한 개발은 객체와 데이터베이스의 변형에 유연하게 사용할 수 있다.
+
+**TypeORM vs Pure JavaScript**
+
+```javascript
+const boards = Board.find({ title: 'Hello', status: 'PUBLIC'});
+
+db.query('SELECT * FROM boards WHERE title = "Hello" AND status = "PUBLIC", (err, result)' => 
+{
+  if(err) {
+    throw new Error('Error');
+  }
+  boards = result.rows;
+});
+```
+**장점**
+- 모델을 기반으로 데이터베이스 테이블 체계를 자동으로 생성
+- 데이터베이스에서 개체를 쉽게 삽입, 업데이트 및 삭제할 수 있음
+- 테이블 간의 매핑을 만듦
+- 간단한 CLI 명령 제공
+- TypeORM 은 간단한 코딩으로 ORM 프레임 워크를 사용하기 쉬움
+- TypeORM 은 다른 모듈과 쉽게 통합 됨
+
 
 ## Reference
 https://docs.nestjs.com/  
