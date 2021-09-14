@@ -67,8 +67,12 @@ $ npm install class-validator and class-transformer
 
 
 ## Decorators
-- @Body() : 요청 객체의 속성 중 Body를 가지고 오기위해 사용
-- @Param() : path variable 을 가져오기 위해 사용. 지정하지 않으면 전체를 다 받고 특정 변수를 가져올 때는 지정
+- @Body(): 요청 객체의 속성 중 Body를 가지고 오기위해 사용
+- @Param(): path variable 을 가져오기 위해 사용. 지정하지 않으면 전체를 다 받고 특정 변수를 가져올 때는 지정
+- @Entity(): 해당 클래스가 엔티티임을 나타내는데 사용
+- @PrimaryGeneratedColumn(): 기본키 임을 나타내는데 사용
+- @Column(): 엔티티의 열임을 나타냄
+- @EntityRepository(): 클래스르 사용자 정의 저장소로 선언하는데 사용
 
 ## DTO(Data Transfer Object)
 - 계층간 데이터 교환을 위한 객체
@@ -184,13 +188,22 @@ Postgres TypeORM 사용하기위해 필요한 모듈
 ```
 # @nestjs/typeorm: NestJS 에서 TypeORM 을 사용하기 위해 연동 시켜주는 모듈
 # typeorm: TypeORM 모듈 
-# pg: Postgres 모듕
+# pg: Postgres 모듈
 $ npm install pg typeorm @nestjs/typeorm --save
 ```
+
+## Entity
+TypeORM 사용 시 database table를 생성하기 위한 CREATE 문 작성 직접 안함
+Entity 클래스를 생성하여 그 안에 컬럼들을 정의하면 database table 로 변환 됨 
+## Repository
+
+엔티티 개체와 함꼐 작동하며 database 와 관련된 작업들을 처리  
+repository.ts 생성 후 Repository 클래스 Extends ( find, insert, delete 등 엔티티를 컨트롤 해줄 수 있음) 
 
 ## Reference
 https://docs.nestjs.com/  
 https://docs.npmjs.com/cli/v7/commands/npm-install
-https://github.com/typestack/class-validator#manual-validation    
+https://github.com/typestack/class-validator#manual-validation
+https://typeorm.delightful.studio/    
 따라하면서 배우는 NestJS - John Ahn
 
