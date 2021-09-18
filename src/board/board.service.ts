@@ -35,10 +35,13 @@ export class BoardService {
         return found;
     }
 
-    // deleteBoard(id: string): void {
-    //     const board = this.getBoardById(id);
-    //     this.boards = this.boards.filter((board) => board.id !== id);
-    // }
+    async deleteBoard(id: number): Promise<void> {
+       const result = await this.boardRepository.delete(id);
+       
+       if(result.affected === 0) {
+            throw new NotFoundException(`Can't find Board with id ${id}`);
+       }
+    }
 
     // updateBoardStatus(id: string, status: BoardStatus): Board {
     //     const board: Board = this.getBoardById(id);

@@ -1,4 +1,4 @@
-import { Body, ConsoleLogger, Controller, Delete, Get, Param, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, ConsoleLogger, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { identity } from 'rxjs';
 import { BoardStatus } from './board-status.enum';
 import { Board } from './board.entity';
@@ -28,12 +28,12 @@ export class BoardController {
 
         return this.boardService.getBoardById(id);
 
-     }
+    }
 
-    // @Delete(':id')
-    // deleteBoard(@Param('id') id: string): void {
-    //     this.boardService.deleteBoard(id);
-    // }
+    @Delete(':id')
+    deleteBoard(@Param('id', ParseIntPipe) id: number): Promise<void> {
+        return this.boardService.deleteBoard(id);
+    }
 
     // @Patch('/:id/status')
     // updateBoardStatus(@Param('id') id: string,
