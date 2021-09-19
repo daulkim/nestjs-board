@@ -11,10 +11,10 @@ export class BoardController {
 
     constructor(private boardService: BoardService){}
 
-    // @Get('/')
-    // getAllBoard(): Board[] {
-    //     return this.boardService.getAllBoards();
-    // }
+    @Get('/')
+    getAllBoard(): Promise<Board[]> {
+        return this.boardService.getAllBoards();
+    }
 
     @Post()
     @UsePipes(ValidationPipe)
