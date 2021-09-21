@@ -74,7 +74,8 @@ $ npm install class-validator and class-transformer
 - @Column(): 엔티티의 열임을 나타냄
 - @EntityRepository(): 클래스르 사용자 정의 저장소로 선언하는데 사용
 - @InjectRepository(): 서비스에서 사용할 Repository 를 변수에 의존성을 주입해줌
-
+- @Unique(): 특정 컬럼에 unique 제약조건을 생성
+  
 ## DTO(Data Transfer Object)
 - 계층간 데이터 교환을 위한 객체
 - 데이터가 네트워크를 통해 전송되는 방법을 정의하는 객체
