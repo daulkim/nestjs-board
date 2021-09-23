@@ -228,6 +228,26 @@ bcryptjs 는 [ salt + 비밀번호 ] 방식
 npm install bcryptjs --save 
 ```
 
+## JWT (JSON Web Token)
+
+당사자간 정보를 JSON 개체로 안전하게 전송하기 위한 컴팩트하고 독립적인 방식을 정의하는 개방형 표준  
+정보를 안전하게 전할 때 혹은 유저의 권한 같은 것을 체크하기 위해 사용하는데 유용한 모듈
+
+JWT 의 구조
+
+- Header
+  토큰에 대한 메타 데이터 포함 ( 타입, 해싱 알고리즘 SHA256 등 )
+- Payload
+  유저정보(issuer), 만료기간(expiration time), 주제(subject) 등
+- Verify Signature
+  JWT 의 마지막 세그먼트는 토큰이 보낸 사람에 의해 서명되었으며 어떤 식으로든 변경되지 않았는지 확인하는데 사용되는 서명  
+  서명은 헤더 및 페이로드 세그먼트, 서명 알고리즘, 비밀 또는 공개 키를 사용하여 생성   
+
+```
+# passport 사용 시 jwt 를 이용해서 인증 처리하는 등의 과정은 쉽게 만들어 줌
+npm install @nestjs/jwt @nestjs/passport passport passport-jwt --save
+
+```
 
 ## Reference
 https://docs.nestjs.com/  
