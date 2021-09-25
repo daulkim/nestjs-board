@@ -248,7 +248,15 @@ JWT 의 구조
 npm install @nestjs/jwt @nestjs/passport passport passport-jwt --save
 
 ```
+## Pipes, Filters, Guards, Interceptors
 
+Pipes: Request 의 유효성 검사 및 Payload 변환을 위해 만들어짐 데이터를 예상한 대로 직렬화
+Filters: 오류처리 미들웨어 특정 오류 처리기를 사용할 경로와 각 경로 주변의 복잡성을 관리하는 방법을 알 수 있음
+Guards: 인증 미들웨어 지정된 경로로 통과할 수 있는 사람과 그렇지 않은 사람을 서버에 알려줌
+Interceptors: Response 매핑 및 캐시 관리와 함께 Request 로깅과 같은 전후 미들웨어 각 Request 전후에 이를 실행하는 기능은 매우 강력하고 유용
+
+** middleware -> guards -> interceptor -> pipe -> controller -> service -> controller -> interceptor -> filter -> client 순으로 실행 됨
+ 
 ## Reference
 https://docs.nestjs.com/  
 https://docs.npmjs.com/cli/v7/commands/npm-install  
