@@ -1,4 +1,5 @@
-import { Body, ConsoleLogger, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, ConsoleLogger, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { identity } from 'rxjs';
 import { BoardStatus } from './board-status.enum';
 import { Board } from './board.entity';
@@ -6,6 +7,7 @@ import { BoardService } from './board.service';
 import { CreateBoardDto } from './dto/create-board-dto';
 import { BoardStatusValidationPipe } from './pipes/board-status-validation.pipe';
 
+@UseGuards(AuthGuard())
 @Controller('board')
 export class BoardController {
 
