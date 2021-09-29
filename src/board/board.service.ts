@@ -18,8 +18,21 @@ export class BoardService {
     // // For test without DB
     // private boards: Board[] = [];
 
-    async getAllBoards():  Promise<Board[]> {
-        return this.boardRepository.find();
+    async getAllBoards(user: User):  Promise<Board[]> {
+
+        /**
+        * QueryBuilder 사용
+        * const query = this.boardRepository.createQueryBuilder('board');
+        * query.where('board.userId = :userId', { userId: user.id }); 
+        * const boards = await query.getMany();
+        * return boards;
+        */
+        
+        /**
+         * Repository API 사용
+        */ 
+        return this.boardRepository.find({ where: [{ user: user}] })
+        
     }
 
     async createBoard(createBoardDto: CreateBoardDto, user: User): Promise<Board> {

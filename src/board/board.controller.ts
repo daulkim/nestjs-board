@@ -16,8 +16,8 @@ export class BoardController {
     constructor(private boardService: BoardService){}
 
     @Get('/')
-    getAllBoard(): Promise<Board[]> {
-        return this.boardService.getAllBoards();
+    getAllBoard(@GetUser() user: User): Promise<Board[]> {
+        return this.boardService.getAllBoards(user);
     }
 
     @Post()
